@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;900&display=swap');
 
 /*=============== VARIABLES CSS ===============*/
-
 :root {
     --header-height: 3.5rem;
 
@@ -121,12 +120,16 @@ input {
 .breadcrumb__subtitle {
     margin-bottom: var(--mb-3);
 }
+.breadcrumb__subtitle span{
+    color: var(--first-color);
+}
 
 .section__title,
 .breadcrumb__title,
 .breadcrumb__subtitle {
     text-align: center;
 }
+
 
 /*=============== LAYOUT ===============*/
 .container {
@@ -353,9 +356,11 @@ border-radius: .5rem;
 
 /*=============== BUTTONS ===============*/
 
+/*  home button */
+
 .button{
     background:var(--first-color);
-    padding: 1.15rem 1.5rem;
+    padding: 1rem 1.5rem;
     color: #fff;
     border-radius: .5rem;
     font-weight: 500;
@@ -562,9 +567,10 @@ font-weight: var(--font-medium);
 }
 
 .newsletter__input::placeholder{
- color: var(--text-color);
+    color: var(--text-color);
 }
 /*=============== SHOP PAGE ===============*/
+ 
 
 
 .shop__container{
@@ -688,7 +694,6 @@ font-weight: var(--font-medium);
 }
 
 /*=============== PAGINATION ===============*/
-
 .pagination{
     display: flex;
     align-items: center;
@@ -712,6 +717,7 @@ font-weight: var(--font-medium);
 .pagination__icon{
     font-size: var(--h2-font-size);
 }
+
 /*=============== DETAILS PAGE ===============*/
 
 
@@ -1131,8 +1137,25 @@ color: var(--title-color);
 
     .steps__container{
         grid-template-columns: repeat(2,1fr);
-        row-gap: 2rem
-;
+        row-gap: 2rem;
+    }
+    .shop__container{
+        grid-template-columns: 1.6fr 3.4fr;
+        justify-content: center;
+    }
+    .shop__content{
+        padding: 2rem 0 1.5rem 0;
+        border-radius: .75rem;
+    }
+    .shop__img{
+        width: 120px;
+    }
+    .shop__img,
+    .shop_subtitle{
+        margin-bottom: var(--mb-0-5);
+    }
+    .shop__title{
+        font-size: var(--normal-font-size);
     }
 }
 
@@ -1211,6 +1234,13 @@ color: var(--title-color);
     .newsletter__container{
         grid-template-columns:.7fr;
     }
+    .shop__container{
+        grid-template-columns:520px;
+        row-gap: 2rem;
+    }
+    .pagination{
+        justify-content: center;
+    }
     .footer__container{
         grid-template-columns: 1fr;
         row-gap: 2rem;
@@ -1235,6 +1265,17 @@ color: var(--title-color);
     .login,
     .cart{
         width: 100%;
+    }
+
+    .shop__container{
+        grid-template-columns: .8fr ;
+    }
+
+    .shop__items{
+        grid-template-columns: 1fr ;
+    }
+    .sidebar{
+        padding: 1.25rem 1.4rem;
     }
 }
 
@@ -1263,11 +1304,11 @@ color: var(--title-color);
     .steps__card{
         padding: 1.5rem ;
     }
+
+    .shop__container{
+        grid-template-columns: 1fr;
+    }
 }
-
- 
-
-
 
 
 
