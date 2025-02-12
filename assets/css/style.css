@@ -370,7 +370,7 @@ border-radius: .5rem;
 
 .button:hover{
     background:  hsl(15, 59%, 45%);
-    padding: 1.15rem 1.5rem;
+    padding: 1rem 1.5rem;
     color :#fff ;
     border-radius: .5rem;
     font-weight: 500;
@@ -1041,6 +1041,8 @@ font-weight: var(--font-medium);
     right: -100%;
     padding: 3.5rem 2rem;
     transition: .4s;
+    overflow: auto;
+
 }
 
 .cart__title-center{
