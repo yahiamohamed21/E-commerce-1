@@ -89,12 +89,47 @@ var newSwiper = new Swiper(".new-swiper", {
 
 
 /*=============== SHOW SCROLL UP ===============*/
-function scrollUp(){
-  const scrollUp =document.getElementById('scroll-up')
-  if(this.scrollY >=350) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
+function scrollup() {
+  const scrollup = document.getElementById('scroll-up');
+
+  if (window.scrollY >= 350) {
+    scrollup.classList.add('show-scroll');
+  } else {
+    scrollup.classList.remove('show-scroll');
+  }
 }
+
+window.addEventListener('scroll', scrollup);
 
 /*=============== QUESTIONS ACCORDION ===============*/
 
 
+const accordionItem = document.querySelectorAll('.questions_item');
+
+accordionItem.forEach((item) => {
+  const accordionHeader = item.querySelector('.questions_header');
+
+  accordionHeader.addEventListener('click', () => {
+    toggleItem(item);
+  });
+});
+
+const toggleItem = (item) => {
+  const accordionContent = item.querySelector('.questions_content')
+
+  if(item.classList.contains('accordion-open')) {
+    accordionContent.removeAttribute('style')
+    item.classList.remove('accordion-open')
+  } else {
+    accordionContent.style.height = accordionContent.scrollHeight + 'px'
+    item.classList.add('accordion-open')
+  }
+}
+
+
+
+
+
+
 /*=============== STYLE SWITCHER ===============*/
+
