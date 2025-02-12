@@ -134,10 +134,10 @@ const toggleItem = (item) => {
 /*=============== STYLE SWITCHER ===============*/
 const addToCartButtons = document.querySelectorAll('.shop__button');
 const cartContainer = document.querySelector('.cart__container');
-const cartItemCount = document.querySelector('.cart__item-count');
-const cartTotalPrice = document.querySelector('.cart__total-price');
+const cartItemCount = document.querySelector('.cart__prices-item');
+const cartTotalPrice = document.querySelector('.cart__prices-total');
 
-let cartItems = [];
+let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
 addToCartButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -159,81 +159,80 @@ addToCartButtons.forEach(button => {
         }
 
         updateCart();
-        showCart();
+        localStorage.setItem('cartItems', JSON.stringify(cartItems)); // Save even if cart isn't shown
     });
 });
 
 function updateCart() {
-  cartContainer.innerHTML = '';
-  let totalPrice = 0;
-  let totalItems = 0;
+    cartContainer.innerHTML = '';
+    let totalPrice = 0;
+    let totalItems = 0;
 
-  cartItems.forEach(item => {
-      const cartCard = document.createElement('article');
-      cartCard.classList.add('cart__card');
-      cartCard.innerHTML = `
-          <div class="cart__box">
-              <img class="cart__img" src="${item.image}" alt="${item.name}">
-          </div>
-          <div class="cart__details">
-              <h3 class="cart__title">${item.name}</h3>
-              <span class="cart__price">$${item.price.toFixed(2)}</span>
-              <div class="cart__amount">
-                  <div class="cart__amount-content">
-                      <span class="cart__amount-box decrease" data-product-name="${item.name}">
-                          <i class="bx bx-minus"></i>
-                      </span>
-                      <span class="cart__amount-number">${item.quantity}</span>
-                      <span class="cart__amount-box increase" data-product-name="${item.name}">
-                          <i class="bx bx-plus"></i>
-                      </span>
-                  </div>
-                  <i class="bx bx-trash-alt cart__amount-trash remove-from-cart" data-product-name="${item.name}"></i>
-              </div>
-          </div>
-      `;
-      cartContainer.appendChild(cartCard);
+    cartItems.forEach(item => {
+        const cartCard = document.createElement('article');
+        cartCard.classList.add('cart__card');
+        cartCard.innerHTML = `
+            <div class="cart__box">
+                <img class="cart__img" src="${item.image}" alt="${item.name}">
+            </div>
+            <div class="cart__details">
+                <h3 class="cart__title">${item.name}</h3>
+                <span class="cart__price">$${item.price.toFixed(2)}</span>
+                <div class="cart__amount">
+                    <div class="cart__amount-content">
+                        <span class="cart__amount-box decrease" data-product-name="${item.name}">
+                            <i class="bx bx-minus"></i>
+                        </span>
+                        <span class="cart__amount-number">${item.quantity}</span>
+                        <span class="cart__amount-box increase" data-product-name="${item.name}">
+                            <i class="bx bx-plus"></i>
+                        </span>
+                    </div>
+                    <i class="bx bx-trash-alt cart__amount-trash remove-from-cart" data-product-name="${item.name}"></i>
+                </div>
+            </div>
+        `;
+        cartContainer.appendChild(cartCard);
 
-      totalPrice += item.price * item.quantity;
-      totalItems += item.quantity;
-  });
+        totalPrice += item.price * item.quantity;
+        totalItems += item.quantity;
+    });
 
-  // Update the cart summary
-  const cartPricesItem = document.querySelector('.cart__prices-item');
-  const cartPricesTotal = document.querySelector('.cart__prices-total');
-
-  cartPricesItem.textContent = `${totalItems} item${totalItems !== 1 ? 's' : ''}`; // Handle singular/plural
-  cartPricesTotal.textContent = `$${totalPrice.toFixed(2)}`;
+    cartItemCount.textContent = `${totalItems} item${totalItems !== 1 ? 's' : ''}`;
+    cartTotalPrice.textContent = `$${totalPrice.toFixed(2)}`;
 }
-function showCart() {
-    cart.classList.add('show-cart');
-}
+
+// REMOVE showCart() function call from addToCartButtons event listener
+// The cart will now only open when the user manually triggers it (e.g., by clicking a cart icon)
 
 cartClose.addEventListener('click', () => {
     cart.classList.remove('show-cart');
 });
 
 cartContainer.addEventListener('click', (event) => {
-    const target = event.target; 
+    const target = event.target;
 
-    if (target.classList.contains('decrease') || target.parentElement.classList.contains('decrease')) { // تحقق من الزر أو الأيقونة داخله
+    if (target.classList.contains('decrease') || target.parentElement.classList.contains('decrease')) {
         const productName = (target.classList.contains('decrease') ? target : target.parentElement).dataset.productName;
         const product = cartItems.find(item => item.name === productName);
         if (product && product.quantity > 1) {
             product.quantity--;
             updateCart();
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
         }
-    } else if (target.classList.contains('increase') || target.parentElement.classList.contains('increase')) { // تحقق من الزر أو الأيقونة داخله
+    } else if (target.classList.contains('increase') || target.parentElement.classList.contains('increase')) {
         const productName = (target.classList.contains('increase') ? target : target.parentElement).dataset.productName;
         const product = cartItems.find(item => item.name === productName);
         if (product) {
             product.quantity++;
             updateCart();
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
         }
     } else if (target.classList.contains('remove-from-cart') || target.parentElement.classList.contains('remove-from-cart')) {
         const productName = (target.classList.contains('remove-from-cart') ? target : target.parentElement).dataset.productName;
         cartItems = cartItems.filter(item => item.name !== productName);
         updateCart();
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
     }
 });
 
