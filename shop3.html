@@ -29,9 +29,9 @@
 </head>
 <body>
     <!--=============== HEADER ===============-->
-    <header class="header"  id="header">
+    <header class="header" id="header">
         <nav class="nav container">
-            <a  style="color: black;"style="text-decoration: none;" href="index.html" cllass="nav__logo">
+            <a  style="color: black;" href="index.html" cllass="nav__logo">
                 <i style="color: black;" class="bx bxs-shopping-bags nav__logo-icon"></i>E-shopper
             </a>
 
@@ -39,27 +39,27 @@
                 <ul class="nav__list">
 
                     <li class="nav__item">
-                        <a href="index.html" style="text-decoration: none;" class="nav__link ">Home</a>
+                        <a href="index.html" class="nav__link ">Home</a>
                     </li>
 
                     <li class="nav__item">
-                        <a href="./shop.html" style="text-decoration: none;" class="nav__link active-link">Shop</a>
+                        <a href="./shop.html" class="nav__link active-link">Shop</a>
                     </li>
 
                     <li class="nav__item">
-                        <a href="./cart.html" style="text-decoration: none;" class="nav__link">Cart</a>
+                        <a href="./cart.html" class="nav__link">Cart</a>
                     </li>
 
                     <li class="nav__item">
-                        <a href="blog.html"style="text-decoration: none;" class="nav__link">Blog</a>
+                        <a href="blog.html" class="nav__link">Blog</a>
                     </li>
 
                     <li class="nav__item">
-                        <a href="faq.html"style="text-decoration: none;" class="nav__link">Faq's</a>
+                        <a href="faq.html" class="nav__link">Faq's</a>
                     </li>
 
                     <li class="nav__item">
-                        <a href="./contact.html"style="text-decoration: none;" class="nav__link">Contact</a>
+                        <a href="./contact.html" class="nav__link">Contact</a>
                     </li>
                 </ul>
 
@@ -165,9 +165,9 @@
                 </article>
     </div>
 
-    <div class="cart__prices" >
-       <span class="cart__prices-item "> 3 item</span> 
-       <span class="cart__prices-total"> 38$</span> 
+    <div class="cart__prices">
+        <span class="cart__prices-item">0 items</span>
+        <span class="cart__prices-total">$0.00</span>
     </div>
 </div>
 
@@ -304,127 +304,141 @@
                     </div>
                 </div>
 
-
                 <div class="shop__items grid">
 
                     <div class="shop__content">
                         <div class="shop__tag">New</div>
                         <img src="./assets/img/product-1.png" class="shop__img" alt="">
-                        <h3 class="shop__title"> Cartoon Jacket </h3>
+                        <h3 class="shop__title">Cartoon Jacket</h3>
                         <span class="shop__subtitle">Accessory</span>
-
                         <div class="shop__prices">
                             <span class="shop__price">$14.99</span>
                             <span class="shop__discount">$24.99</span>
                         </div>
-                        <a href="details.html" class="button shop__button">
+                        <button class="button shop__button"
+                                data-product-name="Cartoon Jacket"
+                                data-product-price="14.99"
+                                data-product-image="./assets/img/product-1.png">
                             <i class="bx bx-cart-alt shop__icon"></i>
-                        </a>
-                    </div>
-
-                    <div class="shop__content">
-                        <div class="shop__tag">sale</div>
-                        <img src="./assets/img/product-2.png" class="shop__img" alt="">
-                        <h3 class="shop__title"> Clothing  Hat Coat</h3>
-                        <span class="shop__subtitle">Accessory</span>
-
-                        <div class="shop__prices">
-                            <span class="shop__price">$11.99</span>
-                            <span class="shop__discount">$22.99</span>
-                        </div>
-                        <a href="details.html" class="button shop__button">
-                            <i class="bx bx-cart-alt shop__icon"></i>
-                        </a>
+                        </button>
                     </div>
 
                     <div class="shop__content">
                         <div class="shop__tag">Sale</div>
-                        <img src="./assets/img/product-3.png" class="shop__img" alt="">
-                        <h3 class="shop__title"> FUR Jacket </h3>
-                        <span class="shop__subtitle">Accessory</span>
-
+                        <img src="./assets/img/product-2.png" class="shop__img" alt="">
+                        <h3 class="shop__title">Stylish Hoodie</h3>
+                        <span class="shop__subtitle">Clothing</span>
                         <div class="shop__prices">
-                            <span class="shop__price">$5.99</span>
-                            <span class="shop__discount">$8.99</span>
+                            <span class="shop__price">$29.99</span>
+                            <span class="shop__discount">$39.99</span>
                         </div>
-                        <a href="details.html" class="button shop__button">
+                        <button class="button shop__button"
+                                data-product-name="Stylish Hoodie"
+                                data-product-price="29.99"
+                                data-product-image="./assets/img/product-2.png">
                             <i class="bx bx-cart-alt shop__icon"></i>
-                        </a>
+                        </button>
                     </div>
 
                     <div class="shop__content">
                         <div class="shop__tag">New</div>
-                        <img src="./assets/img/product-4.png" class="shop__img" alt="">
-                        <h3 class="shop__title"> Fleece Jacket </h3>
-                        <span class="shop__subtitle">Accessory</span>
-
+                        <img src="./assets/img/product-3.png" class="shop__img" alt="">
+                        <h3 class="shop__title">Denim Jacket</h3>
+                        <span class="shop__subtitle">Clothing</span>
                         <div class="shop__prices">
-                            <span class="shop__price">$7.99</span>
-                            <span class="shop__discount">$14.99</span>
+                            <span class="shop__price">$44.99</span>
+                            <span class="shop__discount">$54.99</span>
                         </div>
-                        <a href="details.html" class="button shop__button">
+                        <button class="button shop__button"
+                                data-product-name="Denim Jacket"
+                                data-product-price="44.99"
+                                data-product-image="./assets/img/product-3.png">
                             <i class="bx bx-cart-alt shop__icon"></i>
-                        </a>
+                        </button>
+                    </div>
+
+                    <div class="shop__content">
+                        <div class="shop__tag">Sale</div>
+                        <img src="./assets/img/product-4.png" class="shop__img" alt="">
+                        <h3 class="shop__title">Leather Jacket</h3>
+                        <span class="shop__subtitle">Clothing</span>
+                        <div class="shop__prices">
+                            <span class="shop__price">$79.99</span>
+                            <span class="shop__discount">$99.99</span>
+                        </div>
+                        <button class="button shop__button"
+                                data-product-name="Leather Jacket"
+                                data-product-price="79.99"
+                                data-product-image="./assets/img/product-4.png">
+                            <i class="bx bx-cart-alt shop__icon"></i>
+                        </button>
                     </div>
 
                     <div class="shop__content">
                         <div class="shop__tag">New</div>
                         <img src="./assets/img/product-5.png" class="shop__img" alt="">
-                        <h3 class="shop__title"> Windbreaker Jacket </h3>
-                        <span class="shop__subtitle">Accessory</span>
-
+                        <h3 class="shop__title">Winter Coat</h3>
+                        <span class="shop__subtitle">Clothing</span>
                         <div class="shop__prices">
-                            <span class="shop__price">$7.99</span>
-                            <span class="shop__discount">$24.99</span>
+                            <span class="shop__price">$99.99</span>
+                            <span class="shop__discount">$119.99</span>
                         </div>
-                        <a href="details.html" class="button shop__button">
+                        <button class="button shop__button"
+                                data-product-name="Winter Coat"
+                                data-product-price="99.99"
+                                data-product-image="./assets/img/product-5.png">
                             <i class="bx bx-cart-alt shop__icon"></i>
-                        </a>
+                        </button>
                     </div>
-
+                
                     <div class="shop__content">
                         <div class="shop__tag">Sale</div>
                         <img src="./assets/img/product-6.png" class="shop__img" alt="">
-                        <h3 class="shop__title"> Addidas tracksuit </h3>
-                        <span class="shop__subtitle">Accessory</span>
-
+                        <h3 class="shop__title">Rain Jacket</h3>
+                        <span class="shop__subtitle">Clothing</span>
                         <div class="shop__prices">
-                            <span class="shop__price">$14.99</span>
-                            <span class="shop__discount">$24.99</span>
+                            <span class="shop__price">$39.99</span>
+                            <span class="shop__discount">$49.99</span>
                         </div>
-                        <a href="details.html" class="button shop__button">
+                        <button class="button shop__button"
+                                data-product-name="Rain Jacket"
+                                data-product-price="39.99"
+                                data-product-image="./assets/img/product-6.png">
                             <i class="bx bx-cart-alt shop__icon"></i>
-                        </a>
+                        </button>
                     </div>
-
+                
                 </div>
             </div>
 
 
-            <nav aria-label="...">
-                <ul class="pagination mt-5">
-                    <li class="page-item ">
-                        <a style="color: black;"  href="./shop2.html" tabindex="-1"  > <i class="bx bx-chevron-left pagination__icon"></i></a>
-                    </li>
+<nav >
+    <ul class="pagination">
+    <li class="page-item ">
+        <a style="color: black;"  href="#" tabindex="-1" aria-disabled="true"> <i class="bx bx-chevron-left pagination__icon"></i></a>
+    </li>
+    <li>
+        <a   class="page-link" href="./shop.html">1</a>
+    </li>
 
-                <li class="page-item  ">
-                    <a style="color: black; text-decoration: none;"    href="./shop.html">1</a>
-                </li>
+    <li>
+        <a  style="color: black;text-decoration: none;"href="./shop2.html"><span>2</span></a>
+    </li>
 
-                <li class="page-item" aria-current="page">
-                    <a  style="color: black; text-decoration: none;" href="./shop2.html">2</a>
-                </li>
+    <li>
+        <a  style="color: black;text-decoration: none;" href="./shop3.html"><span>3</span></a>
+    </li>
 
-                <li>
-                    <a  class="page-link" href="./shop3.html">3</a>
-                </li>
+    <li>
+        <a style="color: black;text-decoration: none;"href="#">...</a>
+    </li>
 
-                <li>
-                    <a  style="color: black;text-decoration: none;"href="./shop2.html"><i class="bx bx-chevron-right pagination__icon"></i></a>
-                </li>
+    <li>
+        <a  style="color: black;text-decoration: none;"href="./shop2.html"><i class="bx bx-chevron-right pagination__icon"></i></a>
+    </li>
 
-                </ul>
-            </nav>
+    </ul>
+</nav>
         </section>
 
     </main>
@@ -483,7 +497,7 @@
 
     <!--=============== SCROLL UP ===============-->
 
-    <a href="#" class="scrollup" id="scroll-up">
+    <a style="text-decoration: none;" href="#" class="scrollup" id="scroll-up">
         <i class="bx bx-up-arrow-alt scrollup__icon"></i>
     </a>
     <!--=============== STYLE SWITCHER ===============-->
