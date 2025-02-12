@@ -104,27 +104,26 @@ window.addEventListener('scroll', scrollup);
 /*=============== QUESTIONS ACCORDION ===============*/
 
 
-const accordionItem = document.querySelectorAll('.questions_item');
+const accordionItems = document.querySelectorAll('.questions__item');
 
-accordionItem.forEach((item) => {
-  const accordionHeader = item.querySelector('.questions_header');
+accordionItems.forEach(item => {
+    const accordionHeader = item.querySelector('.questions__header');
+    const accordionContent = item.querySelector('.questions__content');
 
-  accordionHeader.addEventListener('click', () => {
-    toggleItem(item);
-  });
+    // Set initial height to 0 and overflow to hidden for smooth transition
+    accordionContent.style.height = '0';
+    accordionContent.style.overflow = 'hidden';
+
+    accordionHeader.addEventListener('click', () => {
+        item.classList.toggle('accordion-open'); // Use toggle instead of if/else
+
+        if (item.classList.contains('accordion-open')) {
+            accordionContent.style.height = accordionContent.scrollHeight + 'px';
+        } else {
+            accordionContent.style.height = '0';
+        }
+    });
 });
-
-const toggleItem = (item) => {
-  const accordionContent = item.querySelector('.questions_content')
-
-  if(item.classList.contains('accordion-open')) {
-    accordionContent.removeAttribute('style')
-    item.classList.remove('accordion-open')
-  } else {
-    accordionContent.style.height = accordionContent.scrollHeight + 'px'
-    item.classList.add('accordion-open')
-  }
-}
 
 
 
