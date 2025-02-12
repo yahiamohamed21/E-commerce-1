@@ -833,7 +833,9 @@ font-weight: var(--font-medium);
 .accordion-open .questions_item-title,
 .accordion-open .questions_description,
 .accordion-open .questions_icon {
-    color: #fff;
+    color: black;
+    padding-left: 10px;
+    padding-bottom: 20px;
 }
 
 .accordion-open .questions__icon{
