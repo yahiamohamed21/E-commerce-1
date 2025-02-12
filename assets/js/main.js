@@ -236,3 +236,85 @@ cartContainer.addEventListener('click', (event) => {
 });
 
 updateCart();
+
+
+// aadd home shop to cart 
+
+const newContentContainers = document.querySelectorAll('.new__content');
+
+newContentContainers.forEach(container => {
+    const addToCartButton = container.querySelector('.new__button');
+    if (addToCartButton) { // Check if the button exists within the container
+        addToCartButton.addEventListener('click', (event) => {
+            event.preventDefault(); // Prevent the link from navigating
+
+            const productName = container.querySelector('.new__title').textContent;
+            const productPrice = parseFloat(container.querySelector('.new__price').textContent.replace('$', ''));
+            const productImage = container.querySelector('.new__img').src;
+
+            const existingProduct = cartItems.find(item => item.name === productName);
+
+            if (existingProduct) {
+                existingProduct.quantity++;
+            } else {
+                cartItems.push({
+                    name: productName,
+                    price: productPrice,
+                    image: productImage,
+                    quantity: 1
+                });
+            }
+
+            updateCart();
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+            // Optional: Show a quick "Added to Cart" message or animation
+            // Or trigger the cart to open if desired.
+            // Example:
+            // showAddToCartMessage(productName); 
+            // cart.classList.add('show-cart');
+
+        });
+    }
+});
+
+
+function updateCart() {
+    cartContainer.innerHTML = '';
+    let totalPrice = 0;
+    let totalItems = 0;
+
+    cartItems.forEach(item => {
+        const cartCard = document.createElement('article');
+        cartCard.classList.add('cart__card');
+        cartCard.innerHTML = `
+            <div class="cart__box">
+                <img class="cart__img" src="${item.image}" alt="${item.name}">
+            </div>
+            <div class="cart__details">
+                <h3 class="cart__title">${item.name}</h3>
+                <span class="cart__price">$${item.price.toFixed(2)}</span>
+                <div class="cart__amount">
+                    <div class="cart__amount-content">
+                        <span class="cart__amount-box decrease" data-product-name="${item.name}">
+                            <i class="bx bx-minus"></i>
+                        </span>
+                        <span class="cart__amount-number">${item.quantity}</span>
+                        <span class="cart__amount-box increase" data-product-name="${item.name}">
+                            <i class="bx bx-plus"></i>
+                        </span>
+                    </div>
+                    <i class="bx bx-trash-alt cart__amount-trash remove-from-cart" data-product-name="${item.name}"></i>
+                </div>
+            </div>
+        `;
+        cartContainer.appendChild(cartCard);
+
+        totalPrice += item.price * item.quantity;
+        totalItems += item.quantity;
+    });
+
+    cartItemCount.textContent = `${totalItems} item${totalItems !== 1 ? 's' : ''}`;
+    cartTotalPrice.textContent = `$${totalPrice.toFixed(2)}`;
+}
+
